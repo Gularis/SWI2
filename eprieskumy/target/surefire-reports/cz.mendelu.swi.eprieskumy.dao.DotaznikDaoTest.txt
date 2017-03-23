@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: cz.mendelu.swi.eprieskumy.dao.DotaznikDaoTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 69.43 sec <<< FAILURE!
+testSave(cz.mendelu.swi.eprieskumy.dao.DotaznikDaoTest)  Time elapsed: 0.233 sec  <<< FAILURE!
+cz.mendelu.pef.swi.eprieskumy.utils.DaoLayerException: org.hibernate.PersistentObjectException: detached entity passed to persist: cz.mendelu.pef.swi.eprieskumy.domain.Dotaznik
+	at cz.mendelu.pef.swi.eprieskumy.dao.DotaznikDaoImpl.save(DotaznikDaoImpl.java:48)
+	at cz.mendelu.swi.eprieskumy.dao.DotaznikDaoTest.testSave(DotaznikDaoTest.java:42)

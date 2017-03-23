@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="0" name="Failed suite [cz.mendelu.swi.eprieskumy.dao.DotaznikDaoTest]">
+  <test name="Command line test(failed)">
+    <classes>
+      <class name="cz.mendelu.swi.eprieskumy.dao.DotaznikDaoTest">
+        <methods>
+          <include name="springTestContextBeforeTestClass"/>
+          <include name="testSave"/>
+          <include name="springTestContextPrepareTestInstance"/>
+          <include name="springTestContextAfterTestClass"/>
+          <include name="springTestContextBeforeTestMethod"/>
+          <include name="springTestContextAfterTestMethod"/>
+        </methods>
+      </class> <!-- cz.mendelu.swi.eprieskumy.dao.DotaznikDaoTest -->
+    </classes>
+  </test> <!-- Command line test(failed) -->
+</suite> <!-- Failed suite [cz.mendelu.swi.eprieskumy.dao.DotaznikDaoTest] -->
