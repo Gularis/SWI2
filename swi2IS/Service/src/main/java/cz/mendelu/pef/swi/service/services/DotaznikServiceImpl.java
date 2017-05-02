@@ -5,21 +5,31 @@
  */
 package cz.mendelu.pef.swi.service.services;
 
-import cz.mendelu.pef.swi.dao.dao.DotaznikDao;
-import cz.mendelu.pef.swi.dao.domain.Dotaznik;
-import cz.mendelu.pef.swi.dao.domain.Role;
+import cz.mendelu.pef.swi.eprieskumy.dao.DotaznikDao;
+import cz.mendelu.pef.swi.eprieskumy.domain.Dotaznik;
+import cz.mendelu.pef.swi.eprieskumy.domain.Role;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author Martin
  */
 
-
+@Service
 public class DotaznikServiceImpl implements DotaznikService{
     
+    @Autowired
     private DotaznikDao dotaznikDao;
     
     @Override
@@ -47,6 +57,16 @@ public class DotaznikServiceImpl implements DotaznikService{
         return dotaznikDao.findByTitle(Title);
         
     }
+    
+      @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        Dotaznik dotaznik = dotaznikDao.findByTitle(s);
+
+        List<GrantedAuthority> auths = new ArrayList<>();
+        auths.add(new SimpleGrantedAuthority(getRoleForDotaznik(dotaznik).toString()));
+
+        return buildUserForAuthentication(dotaznik, auths);
+}
     @Override
     public Role getRoleForDotaznik(Dotaznik dotaznik) {
         if (isAdminUser(dotaznik)) return Role.ROLE_ADMIN;
@@ -60,8 +80,10 @@ public class DotaznikServiceImpl implements DotaznikService{
         return false;
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
+
+    
+   
+    private UserDetails buildUserForAuthentication(Dotaznik dotaznik, List<GrantedAuthority> auths) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

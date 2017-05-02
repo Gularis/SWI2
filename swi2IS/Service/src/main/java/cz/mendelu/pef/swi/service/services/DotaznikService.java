@@ -5,8 +5,8 @@
  */
 package cz.mendelu.pef.swi.service.services;
 
-import cz.mendelu.pef.swi.dao.domain.Dotaznik;
-import cz.mendelu.pef.swi.dao.domain.Role;
+import cz.mendelu.pef.swi.eprieskumy.domain.Dotaznik;
+import cz.mendelu.pef.swi.eprieskumy.domain.Role;
 import java.util.List;
 import org.springframework.security.core.userdetails.UserDetailsService;
         
@@ -31,6 +31,7 @@ public interface DotaznikService extends UserDetailsService{
     Role getRoleForDotaznik(Dotaznik dotaznik);
     
     boolean isAdminUser(Dotaznik dotaznik);
+    
 
 
 }
