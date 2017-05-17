@@ -1,0 +1,7 @@
+cz.mendelu.pef.swi/webmodulefrontend/mvc/config/MvcConfig.class
+cz.mendelu.pef.swi/webmodulefrontend/mvc/config/WebInitializer.class
+cz.mendelu.pef.swi/webmodulefrontend/mvc/controller/HomepageController.class
+cz.mendelu.pef.swi/webmodulefrontend/mvc/controller/RegistrationController.class
+cz.mendelu.pef.swi/webmodulefrontend/mvc/security/SecurityConfig.class
+cz.mendelu.pef.swi/webmodulefrontend/mvc/security/MessageSecurityWebApplicationInitializer.class
+
